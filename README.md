@@ -37,7 +37,7 @@ pip install kafka-python pandas yfinance
 ### 1. Start Kafka
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This starts Zookeeper on port `2181` and Kafka on port `9092`.
@@ -50,13 +50,34 @@ python data/download_data.py
 
 Downloads OHLCV data from 2020-01-01 to 2024-12-31 for all 5 symbols and saves them as CSVs in `data/`.
 
-### 3. Run the Producer
+### 3. Create the Kafka Topic
 
 ```bash
-python producer/producer.py
+docker exec -it kafka kafka-topics --create --topic stock-market-data --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```
+
+### 4. Run the Producer
+
+Open two terminal windows:
+
+**Terminal 1 — watch messages arriving:**
+```bash
+docker exec -it kafka kafka-console-consumer --topic stock-market-data --bootstrap-server localhost:9092 --from-beginning
+```
+
+**Terminal 2 — run the producer:**
+```bash
+python3 producer/producer.py
 ```
 
 Streams each CSV row as a JSON message to the `stock-market-data` Kafka topic at ~10 records/second.
+When you see JSON flowing in Terminal 1, Phase 1 is complete.
+
+### 5. Shut down Kafka when done
+
+```bash
+docker compose down
+```
 
 ## Kafka Topic
 
@@ -74,8 +95,18 @@ Streams each CSV row as a JSON message to the `stock-market-data` Kafka topic at
 | TSLA | Tesla Inc. |
 | AMZN | Amazon.com Inc. |
 
+## Phase 1 — Data Collection & Kafka Setup
+**Members:** Muthu Nageswaran, Anusha Venkatesh | **Deadline:** April 30
+
+- Downloaded ~6,285 rows of historical stock data (2020–2024) for 5 symbols
+- Set up Kafka and Zookeeper using Docker
+- Created Kafka topic `stock-market-data`
+- Wrote and tested `producer.py` — streams all CSV records into Kafka as JSON messages
+- Verified messages flowing end to end using Kafka console consumer
+
 ## Roadmap
 
+- [x] Phase 1 — Data collection, Kafka setup, producer
 - [ ] Consumer — reads from Kafka topic
 - [ ] Storage — persists messages to a database
 - [ ] Analysis — moving averages, RSI, volatility metrics
