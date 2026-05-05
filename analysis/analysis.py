@@ -5,10 +5,10 @@ import os
 from decimal import Decimal
 
 # 1. SETUP & CONNECTION
-# Ensure the charts directory exists
-os.makedirs('charts', exist_ok=True)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+CHARTS_DIR = os.path.join(SCRIPT_DIR, 'charts')
+os.makedirs(CHARTS_DIR, exist_ok=True)
 
-# Connect to DynamoDB - using us-east-2 as identified in your environment
 dynamodb = boto3.resource('dynamodb', region_name='us-east-2')
 table = dynamodb.Table('StockData')
 
@@ -54,7 +54,7 @@ plt.xlabel('Date')
 plt.ylabel('Closing Price ($)')
 plt.legend()
 plt.grid(True)
-plt.savefig('charts/chart1_stock_prices.png', dpi=150)
+plt.savefig(os.path.join(CHARTS_DIR, 'chart1_stock_prices.png'), dpi=150)
 plt.close() # Prevents the "one chart at a time" blocking issue
 
 # CHART 2: 7-Day Moving Average (AAPL Example)
@@ -65,7 +65,7 @@ plt.plot(aapl_df['date'], aapl_df['moving_avg_7'], label='7-Day MA', color='red'
 plt.title('AAPL: Price vs 7-Day Moving Average')
 plt.legend()
 plt.grid(True)
-plt.savefig('charts/chart2_moving_average.png', dpi=150)
+plt.savefig(os.path.join(CHARTS_DIR, 'chart2_moving_average.png'), dpi=150)
 plt.close()
 
 # CHART 3: Anomaly Detection
@@ -77,7 +77,7 @@ for symbol in df['symbol'].unique():
     plt.scatter(anomalies['date'], anomalies['close'], label=f'{symbol} Anomaly', s=15)
 plt.title('Stock Price Anomalies Detected')
 plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-plt.savefig('charts/chart3_anomalies.png', dpi=150, bbox_inches='tight')
+plt.savefig(os.path.join(CHARTS_DIR, 'chart3_anomalies.png'), dpi=150, bbox_inches='tight')
 plt.close()
 
 # CHART 4: Volume Spikes
@@ -90,7 +90,7 @@ for symbol in df['symbol'].unique():
 plt.title('Trading Volume Spikes')
 plt.ylabel('Volume')
 plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-plt.savefig('charts/chart4_volume_spikes.png', dpi=150, bbox_inches='tight')
+plt.savefig(os.path.join(CHARTS_DIR, 'chart4_volume_spikes.png'), dpi=150, bbox_inches='tight')
 plt.close()
 
 # CHART 5: Anomaly Count by Stock
@@ -100,7 +100,7 @@ anomaly_counts.plot(kind='bar', color='skyblue', edgecolor='black')
 plt.title('Total Anomalies Detected per Stock')
 plt.ylabel('Number of Anomalies')
 plt.xticks(rotation=45)
-plt.savefig('charts/chart5_anomaly_counts.png', dpi=150, bbox_inches='tight')
+plt.savefig(os.path.join(CHARTS_DIR, 'chart5_anomaly_counts.png'), dpi=150, bbox_inches='tight')
 plt.close()
 
 # 4. FINAL STATISTICS SUMMARY
@@ -116,4 +116,4 @@ if not anomaly_counts.empty:
     print(f"Most Volatile Stock:     {most_volatile} ({anomaly_counts.max()} anomalies)")
 
 print("="*35)
-print("Charts saved successfully in analysis/charts/")
+print(f"Charts saved successfully in {CHARTS_DIR}")
