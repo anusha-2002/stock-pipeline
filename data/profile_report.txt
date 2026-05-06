@@ -1,0 +1,108 @@
+============================================================
+  STOCK DATA PROFILING REPORT - Apache Spark (PySpark)
+  Symbols   : AAPL, GOOGL, MSFT, TSLA, AMZN
+  Date range: 2020-01-01 to 2024-12-31
+============================================================
+
+--- AAPL ---
+  Rows    : 1257
+  Columns : ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'symbol']
+  Nulls   : 0
+  Statistics:
+    count   : Open=          1257  High=          1257  Low=          1257  Close=          1257  Volume=          1257
+    mean    : Open=151.28347537161696  High=152.96178571086148  Low=149.74060878822732  Close=151.43965475769772  Volume=9.061167931583135E7
+    stddev  : Open=41.756218043102145  High=41.95506813187114  Low=41.59186545069468  Close=41.81667968433096  Volume=5.324604621411695E7
+    min     : Open=55.11003383943649  High=55.21151627155354  Low=51.372080998658355  Close=54.213600158691406  Volume=     2.32347E7
+    max     : Open=256.7872242633273  High=258.6868506395932  Low=256.2302692406472  Close=257.6127014160156  Volume=      4.2651E8
+  Date range: 2020-01-02 to 2024-12-30
+
+--- GOOGL ---
+  Rows    : 1257
+  Columns : ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'symbol']
+  Nulls   : 0
+  Statistics:
+    count   : Open=          1257  High=          1257  Low=          1257  Close=          1257  Volume=          1257
+    mean    : Open=118.01096543355229  High=119.37398981040023  Low=116.74015809026321  Close=118.08287270484506  Volume=3.310092673031026E7
+    stddev  : Open=32.23037283414633  High=32.43795453941467  Low=32.000106914710706  Close=32.205731972432694  Volume=1.461587562468225E7
+    min     : Open=52.38553745507887  High=52.90821796189328  Low=50.03000577141187  Close=52.27445602416992  Volume=     9312000.0
+    max     : Open=196.34228662818003  High=200.4930951236226  Low=194.08272855714978  Close=195.7550048828125  Volume=       1.232E8
+  Date range: 2020-01-02 to 2024-12-30
+
+--- MSFT ---
+  Rows    : 1257
+  Columns : ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'symbol']
+  Nulls   : 0
+  Statistics:
+    count   : Open=          1257  High=          1257  Low=          1257  Close=          1257  Volume=          1257
+    mean    : Open=286.16213508854736  High=289.00105699490797  Low=283.2195226887199  Close=286.2386276500037  Volume=2.8650010103420842E7
+    stddev  : Open=81.2440574571857  High=81.45181661748246  Low=80.83109461522251  Close=81.18221116371343  Volume=1.273438765560347E7
+    min     : Open=130.14673789897077  High=133.5284186057588  Low=125.8816652354361  Close=128.6363983154297  Volume=     7164500.0
+    max     : Open=460.770141890067  High=462.1021014719612  Low=458.26398000009  Close=461.3226318359375  Volume=     9.70127E7
+  Date range: 2020-01-02 to 2024-12-30
+
+--- TSLA ---
+  Rows    : 1257
+  Columns : ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'symbol']
+  Nulls   : 0
+  Statistics:
+    count   : Open=          1257  High=          1257  Low=          1257  Close=          1257  Volume=          1257
+    mean    : Open=213.31521943910974  High=218.11713001248185  Low=208.20468772244814  Close=213.2794425815652  Volume=1.255755447096261E8
+    stddev  : Open=83.44924973788747  High=85.22529577503349  Low=81.38276862266676  Close=83.32151523455335  Volume=8.211007348644225E7
+    min     : Open=24.979999542236328  High=26.99066734313965  Low=23.367332458496094  Close=24.08133316040039  Volume=     2.94018E7
+    max     : Open=475.8999938964844  High=488.5400085449219  Low=457.510009765625  Close=479.8599853515625  Volume=     9.14082E8
+  Date range: 2020-01-02 to 2024-12-30
+
+--- AMZN ---
+  Rows    : 1257
+  Columns : ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'symbol']
+  Nulls   : 0
+  Statistics:
+    count   : Open=          1257  High=          1257  Low=          1257  Close=          1257  Volume=          1257
+    mean    : Open=146.6793206456927  High=148.47844875702899  Low=144.7724698536341  Close=146.65599406628544  Volume=6.852326475735879E7
+    stddev  : Open=32.00698856615397  High=32.06836358282933  Low=31.84267828763908  Close=31.951644184544037  Volume=3.401139725481629E7
+    min     : Open=82.07550048828125  High=83.4800033569336  Low=81.30149841308594  Close=81.81999969482422  Volume=     1.50075E7
+    max     : Open=232.38999938964844  High=         233.0  Low=228.00999450683594  Close=232.92999267578125  Volume=     3.11346E8
+  Date range: 2020-01-02 to 2024-12-30
+
+============================================================
+  COMBINED DATASET SUMMARY
+============================================================
+  Total records: 6285
+  Symbols      : AAPL, GOOGL, MSFT, TSLA, AMZN
+
+  Per-symbol row counts:
+    AAPL: 1257 rows, 0 null(s)
+    GOOGL: 1257 rows, 0 null(s)
+    MSFT: 1257 rows, 0 null(s)
+    TSLA: 1257 rows, 0 null(s)
+    AMZN: 1257 rows, 0 null(s)
+
+  Combined numeric statistics:
+    count   : Open=          6285  High=          6285  Low=          6285  Close=          6285  Volume=          6285
+    mean    : Open=183.0902231957038  High=185.5864822571361  Low=180.53548942865854  Close=183.13931835207944  Volume=6.929228512330946E7
+    stddev  : Open=84.22959920815327  High=85.21564606333916  Low=83.09446862773432  Close=84.1875989099637  Volume=5.947817658821252E7
+    min     : Open=24.979999542236328  High=26.99066734313965  Low=23.367332458496094  Close=24.08133316040039  Volume=     7164500.0
+    max     : Open=475.8999938964844  High=488.5400085449219  Low=458.26398000009  Close=479.8599853515625  Volume=     9.14082E8
+
+  Data types:
+    Date: string
+    Close: double
+    High: double
+    Low: double
+    Open: double
+    Volume: double
+    symbol: string
+
+  NULL summary (combined):
+    Date: 0 null(s)
+    Close: 0 null(s)
+    High: 0 null(s)
+    Low: 0 null(s)
+    Open: 0 null(s)
+    Volume: 0 null(s)
+    symbol: 0 null(s)
+
+  Data quality: PASS - dataset complete and ready for pipeline.
+============================================================
+  END OF PROFILE REPORT
+============================================================
