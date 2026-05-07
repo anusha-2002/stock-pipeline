@@ -50,7 +50,7 @@ yfinance API → CSV files (data/)
 | Om Ashokkumar Patel | opatel8@hawk.illinoistech.edu | Phase 3 |
 | Souptik Sinha | ssinha21@hawk.illinoistech.edu | Phase 3 |
 
-Illinois Institute of Technology | CSP554 Big Data Technologies | Spring 2025
+Illinois Institute of Technology | CSP554 Big Data Technologies | Spring 2026
 
 ---
 
